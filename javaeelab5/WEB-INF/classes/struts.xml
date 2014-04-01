@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<constant name="struts.i18n.encoding" value="utf-8"/>
+<constant name="struts.custom.i18n.resources" value="message" ></constant>
+<package name="upload" extends="struts-default" namespace="/">
+<action name="upload" class="com.sise.lesson5.action.UploadAction">
+<param name="savePath">/save</param>
+<result name="success">/uploadResult.jsp</result>
+<result name="input">/upload.jsp</result>
+<interceptor-ref name="fileUpload">
+<param name="allowedTypes">text/plain</param>
+<param name="maximumSize">2000</param>
+</interceptor-ref>
+<interceptor-ref name="defaultStack"/>
+</action>
+</package>
+</struts>
